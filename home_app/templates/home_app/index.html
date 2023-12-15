@@ -69,9 +69,12 @@ https://templatemo.com/tm-551-stand-blog
                 <a class="nav-link" href="contact.html">Contact Us</a>
               </li>
                 {% if request.user.is_anonymous %}
-                 <li class="nav-item">
-                  <a class="nav-link" href="/login">Login</a>
-                </li>
+                 <div class="d-flex" >
+                 <a class="nav-link" href="/login">Login</a> <span class="mt-2"> / </span>
+                 <a class="nav-link" href="/register">Register</a>
+                 </div >
+
+
                 {% else %}
                  <li class="nav-item">
                   <a class="nav-link" href="/">{{ request.user.username }}</a>
