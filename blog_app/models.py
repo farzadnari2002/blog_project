@@ -32,3 +32,8 @@ class Article(models.Model):
     def __str__(self):
         return f"{self.title} - {self.body[:30]}..."
     
+    
+    def save(self, *args, **kwargs):
+        self.title = self.title.capitalize()
+        super().save(args, kwargs)
+    
