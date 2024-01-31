@@ -31,9 +31,18 @@ class Article(models.Model):
 
     def __str__(self):
         return f"{self.title} - {self.body[:30]}..."
+
+
+class Testforsave(models.Model):
+    title = models.CharField(max_length=30)
+    desc = models.TextField()
     
+    def __str__(self):
+        return self.title
     
     def save(self, *args, **kwargs):
-        self.title = self.title.capitalize()
-        super().save(args, kwargs)
-    
+        self.title = self.title.upper()
+        print("\n=========================")
+        print(f'testi : {self.title}')
+        print("\n=========================")
+        super().save(args,kwargs)
