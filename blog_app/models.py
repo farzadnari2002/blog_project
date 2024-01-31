@@ -40,9 +40,4 @@ class Testforsave(models.Model):
     def __str__(self):
         return self.title
     
-    def save(self, *args, **kwargs):
-        self.title = self.title.upper()
-        print("\n=========================")
-        print(f'testi : {self.title}')
-        print("\n=========================")
-        super().save(args,kwargs)
+ 
