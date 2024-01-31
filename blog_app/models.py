@@ -33,11 +33,4 @@ class Article(models.Model):
         return f"{self.title} - {self.body[:30]}..."
 
 
-class Testforsave(models.Model):
-    title = models.CharField(max_length=30)
-    desc = models.TextField()
-    
-    def __str__(self):
-        return self.title
-    
  
