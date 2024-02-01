@@ -1,11 +1,12 @@
 from django.shortcuts import render
 from .models import Article
 from django.urls import reverse
+from django.shortcuts import get_object_or_404
 
 
 
 def article_detail(request, id):
-    article = Article.objects.get(id=id)
+    article = get_object_or_404(Article, id=id)
     return render(request, 'blog_app/article_detail.html', context={'article':article})
     
     
