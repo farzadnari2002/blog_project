@@ -26,7 +26,7 @@
                   {% endif %}
                   {% endfor %}
                 </div>
-                <a href="{% url "blog_app:article_detail" article.id %}"><h4>{{ article.title }}</h4></a>
+                <a href="{{ article.get_absolute_url }}"><h4>{{ article.title }}</h4></a>
                 <ul class="post-info">
                   <li><a href="#">{{ article.writer.username }}</a></li>
                   <li><a href="#">{{ article.created}}</a></li>
