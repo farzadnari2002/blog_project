@@ -3,7 +3,6 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.query import QuerySet
 from django.utils import timezone
-from .managers import *
 
 
 
@@ -14,7 +13,7 @@ class Category(models.Model):
     def __str__(self):
         return self.title
     
-
+    
 
 
 class Article(models.Model):
@@ -27,7 +26,6 @@ class Article(models.Model):
     updated = models.DateTimeField(auto_now=True)
     pub_date = models.DateField(default=timezone.now())
     status = models.BooleanField(default=False)
-    articles = ArticleManager()
     
     
     
