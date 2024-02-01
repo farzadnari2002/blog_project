@@ -4,6 +4,13 @@ from django.contrib.auth.models import User
 from django.utils import timezone
 
 
+
+class ArticleManager(models.Manager):
+    def counter(self):
+        return len(self.all())
+
+
+
 class Category(models.Model):
     title = models.CharField(max_length=70)
     created = models.DateTimeField(auto_now_add=True)
@@ -11,8 +18,6 @@ class Category(models.Model):
     def __str__(self):
         return self.title
     
-
-
 
 
 
@@ -26,6 +31,8 @@ class Article(models.Model):
     updated = models.DateTimeField(auto_now=True)
     pub_date = models.DateField(default=timezone.now())
     status = models.BooleanField(default=False)
+    objects = ArticleManager()
+    
     
     
 
