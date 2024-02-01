@@ -31,7 +31,7 @@ class Article(models.Model):
     updated = models.DateTimeField(auto_now=True)
     pub_date = models.DateField(default=timezone.now())
     status = models.BooleanField(default=False)
-    objects = ArticleManager()
+    articles = ArticleManager()
     
     
     
