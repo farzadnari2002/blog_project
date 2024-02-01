@@ -7,5 +7,6 @@ def home(request):
     articles = Article.articles.filter(status=True)
     # articles = Article.objects.all()
     print(Article.articles.counter())
+    print(Article.articles.statustrue())
 
     return render(request, 'home_app/index.html', context={'articles': articles})
