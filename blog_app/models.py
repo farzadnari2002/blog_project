@@ -30,8 +30,8 @@ class Article(models.Model):
     slug = models.SlugField(null=True, blank=True, unique=True)
     
     
-    class Meta:
-        ordering = ('-created',) 
+    # class Meta:
+    #     ordering = ('-created',)
     
     
     def save(self, *args, **kwargs):
