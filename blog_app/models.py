@@ -1,9 +1,10 @@
 from collections.abc import Iterable
 from django.db import models
 from django.contrib.auth.models import User
-from django.db.models.query import QuerySet
 from django.utils import timezone
 from django.urls import reverse
+from django.utils.text import slugify
+
 
 
 
@@ -27,7 +28,13 @@ class Article(models.Model):
     updated = models.DateTimeField(auto_now=True)
     pub_date = models.DateField(default=timezone.now())
     status = models.BooleanField(default=False)
-    slug = models.SlugField(null=True) 
+    slug = models.SlugField(null=True, blank=True, unique=True) 
+    
+    
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super().save(args, kwargs)
+        
     
     
     def get_absolute_url(self):
