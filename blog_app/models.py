@@ -7,7 +7,6 @@ from django.utils.text import slugify
 
 
 
-
 class Category(models.Model):
     title = models.CharField(max_length=70)
     created = models.DateTimeField(auto_now_add=True)
@@ -16,8 +15,7 @@ class Category(models.Model):
         return self.title
     
     
-
-
+    
 class Article(models.Model):
     writer = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=70)
