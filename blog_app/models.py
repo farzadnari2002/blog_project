@@ -27,6 +27,8 @@ class Article(models.Model):
     updated = models.DateTimeField(auto_now=True)
     pub_date = models.DateField(default=timezone.now())
     status = models.BooleanField(default=False)
+    slug = models.SlugField(null=True) 
+    
     
     def get_absolute_url(self):
         return reverse('blog_app:article_detail', args=[self.id])
