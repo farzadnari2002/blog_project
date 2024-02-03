@@ -17,7 +17,7 @@ def article_list(request):
 def category_detail(request, pk):
     category = get_object_or_404(Category, id=pk)
     articles = category.article_set.all()
-    return render(request, 'blog_app/article_list', context={'articles':articles})
+    return render(request, 'blog_app/article_list.html', context={'articles':articles})
     
     
 
