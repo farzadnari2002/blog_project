@@ -25,7 +25,7 @@ class Category(models.Model):
 class Article(models.Model):
     writer = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=70)
-    category = models.ManyToManyField(Category)
+    category = models.ManyToManyField(Category, related_name="articles")
     body = models.TextField()
     image = models.ImageField(upload_to='images/articles')
     created = models.DateTimeField(auto_now_add=True)
