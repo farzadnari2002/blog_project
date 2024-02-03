@@ -1,6 +1,5 @@
 from django.shortcuts import render
-from .models import Article
-from django.urls import reverse
+from .models import Article, Category
 from django.shortcuts import get_object_or_404
 
 
@@ -13,6 +12,12 @@ def article_detail(request, slug):
 def article_list(request):
     articles = Article.objects.all()
     return render(request, 'blog_app/article_list.html', context={'articles':articles})
+
+
+def category_detail(request, pk):
+    category = get_object_or_404(Category, id=pk)
+    articles = category.article_set.all()
+    return render(request, 'blog_app/article_list', context={'articles':articles})
     
     
 
