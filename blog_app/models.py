@@ -12,6 +12,11 @@ class Category(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     
     
+    def get_absolute_url(self):
+        return reverse('blog_app:category_detail', args=[self.id])
+    
+    
+    
     def __str__(self):
         return self.title
     
@@ -28,6 +33,7 @@ class Article(models.Model):
     pub_date = models.DateField(default=timezone.now())
     status = models.BooleanField(default=False)
     slug = models.SlugField(null=True, blank=True, unique=True)
+    
     
     
     # class Meta:
