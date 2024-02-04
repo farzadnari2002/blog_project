@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 {% load static %}
+{% load render_partial %}
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -187,7 +191,7 @@
               </div>
             </div>
           </div>
-          {% include "includes/sidebar.html" %}
+          {% render_partial "home_app.views.partial_view" %}
         </div>
       </div>
     </section>
