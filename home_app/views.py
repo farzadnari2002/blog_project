@@ -12,6 +12,6 @@ def home(request):
 
 
 def partial_view(request):
-    articles = Article.objects.all()
+    data = {'name':'farzad'}
     
-    return render(request, 'includes/sidebar.html', context={'articles':articles})
+    return render(request, 'includes/sidebar.html', context=data)
