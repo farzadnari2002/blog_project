@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-5@l@m8#u*1-ac$s!it#*eimq#byvc&ghrsm(=*mcyad8m@riec
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'blog_app.apps.BlogAppConfig',
     'django_cleanup.apps.CleanupConfig',
     'django_render_partial',
+    'social_share',
 
 
 
