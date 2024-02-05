@@ -11,7 +11,3 @@ def home(request):
 
 
 
-def partial_view(request):
-    data = {'name':'farzad'}
-    
-    return render(request, 'includes/sidebar.html', context=data)

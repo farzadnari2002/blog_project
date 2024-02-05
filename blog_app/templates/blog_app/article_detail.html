@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-{% load render_partial %}
+
 
 
 
@@ -191,7 +191,7 @@
               </div>
             </div>
           </div>
-          {% render_partial "home_app:sidebar" %}
+          {% include "includes/sidebar.html" %}
         </div>
       </div>
     </section>
