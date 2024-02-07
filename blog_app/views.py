@@ -14,8 +14,12 @@ def article_list(request):
     articles = Article.objects.all()
     page_number = request.GET.get('page')
     paginator = Paginator(articles, 1)
-    objects_list = paginator.page(page_number)
     
+    if page_number :
+        objects_list = paginator.page(page_number)
+
+    else:
+        objects_list = paginator.page(1)
     return render(request, 'blog_app/article_list.html', context={'articles':objects_list})
 
 
