@@ -126,7 +126,7 @@
                           <div class="right-content">
                             <h4>{{ comment.user.username }}<span>{{ comment.created }}</span></h4>
                             <p>{{ comment.body }}</p>
-                            <button class="btn btn-primary">reply</button>
+                            <button class="btn btn-primary" onclick="set_value({{ comment.id }})">reply</button>
                           </div>
                         </li>
                         {% endif %}
@@ -164,12 +164,12 @@
                         <div class="row">
                           <div class="col-md-12 col-sm-12">
                             <fieldset>
-                              <input name="parent_id" type="number" id="parent_id" placeholder="reply to">
+                              <input name="parent_id" type="hidden" id="parent_id" placeholder="reply to">
                             </fieldset>
                           </div> 
                           <div class="col-lg-12">
                             <fieldset>
-                              <textarea name="body" rows="6" id="message" placeholder="Type your comment" required=""></textarea>
+                              <textarea name="body" rows="6" id="body" placeholder="Type your comment" required=""></textarea>
                             </fieldset>
                           </div>
                           <div class="col-lg-12">
@@ -192,6 +192,15 @@
         </div>
       </div>
     </section>
+
+    <script>
+      
+    function set_value(id){
+      document.getElementById('parent_id').value = id;
+      window.location.href = '#body'
+    }
+
+    </script>
 
     
     {% endblock %}
