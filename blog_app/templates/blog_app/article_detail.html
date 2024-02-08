@@ -114,9 +114,15 @@
                         {% for comment in article.comments.all %}
                         {% if comment.parent == None %}
                         <li>
+                          {% if comment.user.profile.image %}
                           <div class="author-thumb">
                             <img src="{{ comment.user.profile.image.url }}" alt="">
                           </div>
+                          {% else %}
+                          <div class="author-thumb">
+                            <img src="{% static "images\icons\profile.png" %}" alt="">
+                          </div>
+                          {% endif %}
                           <div class="right-content">
                             <h4>{{ comment.user.username }}<span>{{ comment.created }}</span></h4>
                             <p>{{ comment.body }}</p>
@@ -125,9 +131,15 @@
                         {% endif %}
                         {% for reply in comment.replies.all %}
                         <li class="replied">
+                          {% if comment.user.profile.image %}
                           <div class="author-thumb">
                             <img src="{{ comment.user.profile.image.url }}" alt="">
                           </div>
+                          {% else %}
+                          <div class="author-thumb">
+                            <img src="{% static "images\icons\profile.png" %}" alt="">
+                          </div>
+                          {% endif %}
                           <div class="right-content">
                             <h4>{{comment.user.username}}<span>{{ comment.created }}</span></h4>
                             <p>{{ comment.body }}</p>
