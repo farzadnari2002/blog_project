@@ -10,7 +10,7 @@ def article_detail(request, slug):
     article = get_object_or_404(Article, slug=slug)
     if request.method == 'POST':
         body = request.POST.get('body')
-        parent_id = request.POST.get('parent')
+        parent_id = request.POST.get('parent_id')
         Comment.objects.create(article=article, user=request.user, body=body, parent_id=parent_id)
         
 
