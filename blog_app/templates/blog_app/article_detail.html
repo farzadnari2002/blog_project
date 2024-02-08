@@ -181,6 +181,8 @@
                     </div>
                   </div>
                 </div>
+                {% else %}
+                <a href="{% url 'accounts_app:login' %}">for sending comment please login</a>
                 {% endif %}
               </div>
             </div>
