@@ -10,8 +10,8 @@ def article_detail(request, slug):
     article = get_object_or_404(Article, slug=slug)
     if request.method == 'POST':
         body = request.POST.get('body')
-        parent = 5
-        Comment.objects.create(article=article, user=request.user, body=body, parent_id=parent)
+        parent_id = request.POST.get('parent')
+        Comment.objects.create(article=article, user=request.user, body=body, parent_id=parent_id)
         
 
     return render(request, 'blog_app/article_detail.html', context={'article':article})

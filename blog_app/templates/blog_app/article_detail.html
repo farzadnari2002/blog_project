@@ -161,10 +161,10 @@
                         {% csrf_token %}
                         <div class="row">
                           <div class="col-md-12 col-sm-12">
-                            {% comment %} <fieldset>
-                              <input name="parent" type="number" id="parent" placeholder="parent">
+                            <fieldset>
+                              <input name="parent_id" type="number" id="parent_id" placeholder="reply to">
                             </fieldset>
-                          </div> {% endcomment %}
+                          </div> 
                           <div class="col-lg-12">
                             <fieldset>
                               <textarea name="body" rows="6" id="message" placeholder="Type your comment" required=""></textarea>
