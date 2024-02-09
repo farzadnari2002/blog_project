@@ -12,8 +12,6 @@ def article_detail(request, slug):
         body = request.POST.get('body')
         parent_id = request.POST.get('parent_id')
         Comment.objects.create(article=article, user=request.user, body=body, parent_id=parent_id)
-        
-
     return render(request, 'blog_app/article_detail.html', context={'article':article})
 
 
@@ -28,6 +26,12 @@ def article_list(request):
 def category_detail(request, pk):
     category = get_object_or_404(Category, id=pk)
     articles = category.articles.all()
+    return render(request, 'blog_app/article_list.html', context={'articles':articles})
+
+
+def search(request):
+    q = request.GET.get('q')
+    articles = Article.objects.filter(title_icontains=q)
     return render(request, 'blog_app/article_list.html', context={'articles':articles})
     
     
