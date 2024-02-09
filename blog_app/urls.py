@@ -8,4 +8,5 @@ urlpatterns = [
     path('detail/<slug:slug>', article_detail, name='article_detail'),
     path('list', article_list, name='article_list'),
     path('category/<int:pk>', category_detail, name='category_detail'),
+    path('search', search, name='search'),
 ]
