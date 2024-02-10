@@ -32,7 +32,10 @@ def category_detail(request, pk):
 def search(request):
     q = request.GET.get('q')
     articles = Article.objects.filter(title__icontains=q)
-    return render(request, 'blog_app/article_list.html', context={'articles':articles})
+    page_number = request.GET.get('page', 1)
+    paginator = Paginator(articles, 1)
+    objects_list = paginator.page(page_number)
+    return render(request, 'blog_app/article_list.html', context={'articles':objects_list})
     
     
 
