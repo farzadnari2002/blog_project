@@ -36,6 +36,10 @@ def search(request):
     paginator = Paginator(articles, 1)
     objects_list = paginator.page(page_number)
     return render(request, 'blog_app/article_list.html', context={'articles':objects_list})
+
+
+def contact_us(request):
+    return render(request, 'blog_app/contact_us.html')
     
     
 
