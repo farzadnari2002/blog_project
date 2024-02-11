@@ -9,4 +9,5 @@ urlpatterns = [
     path('list', article_list, name='article_list'),
     path('category/<int:pk>', category_detail, name='category_detail'),
     path('search', search, name='search'),
+    path('contactus', contact_us, name='contact_us'),
 ]
