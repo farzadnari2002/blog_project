@@ -129,7 +129,6 @@
                             <button class="btn btn-primary" onclick="set_value({{ comment.id }})">reply</button>
                           </div>
                         </li>
-                        {% endif %}
                         {% for reply in comment.replies.all %}
                         <li class="replied">
                           {% if reply.user.profile.image %}
@@ -147,6 +146,7 @@
                           </div>
                         </li>
                         {% endfor %}
+                        {% endif %}
                         {% endfor %}
                       </ul>
                     </div>

@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from .models import Article, Category, Comment
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, redirect
 from django.core.paginator import Paginator
+from .forms import ContactUsForm
 
 
 
@@ -39,7 +40,13 @@ def search(request):
 
 
 def contact_us(request):
-    return render(request, 'blog_app/contact_us.html')
+    if request.method == 'POST':
+        form = ContactUsForm(request.POST)
+        if form.is_valid():
+            print(form.cleaned_data['massage'])
+            return redirect('home_app:home')
+    form = ContactUsForm()
+    return render(request, 'blog_app/contact_us.html', context={'form':form})
     
     
 
