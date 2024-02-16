@@ -5,7 +5,7 @@ from django.core.exceptions import ValidationError
 
 class ContactUsForm(forms.Form):
     name = forms.CharField(label='your name', max_length=10)
-    massage = forms.CharField(label='your message', max_length=10)
+    message = forms.CharField(label='your message', max_length=10)
     
     
     def clean(self):
