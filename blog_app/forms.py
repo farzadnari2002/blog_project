@@ -14,3 +14,10 @@ class ContactUsForm(forms.Form):
         if name == message:
             raise ValidationError('name and message are same', code='name_message_same')
         
+        
+    def clean_name(self):
+        name = self.cleaned_data.get('name')
+        if ' ' in name:
+            raise ValidationError('no space in name',code='name_space_error')
+        return name
+        
