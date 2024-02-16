@@ -44,9 +44,12 @@ def contact_us(request):
         form = ContactUsForm(request.POST)
         if form.is_valid():
             print(form.cleaned_data['massage'])
-            return redirect('home_app:home')
+        else:
+            return render(request, 'blog_app/contact_us.html', context={'form':form})
+               
     form = ContactUsForm()
     return render(request, 'blog_app/contact_us.html', context={'form':form})
+    
     
     
 
