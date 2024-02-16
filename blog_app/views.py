@@ -44,10 +44,8 @@ def contact_us(request):
         form = ContactUsForm(request.POST)
         if form.is_valid():
             print(form.cleaned_data['massage'])
-        else:
-            return render(request, 'blog_app/contact_us.html', context={'form':form})
-               
-    form = ContactUsForm()
+    else:
+         form = ContactUsForm()          
     return render(request, 'blog_app/contact_us.html', context={'form':form})
     
     
