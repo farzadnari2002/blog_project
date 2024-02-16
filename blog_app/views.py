@@ -43,7 +43,7 @@ def contact_us(request):
     if request.method == 'POST':
         form = ContactUsForm(request.POST)
         if form.is_valid():
-            print(form.cleaned_data['message'])
+            print(form.cleaned_data['name'])
     else:
          form = ContactUsForm()          
     return render(request, 'blog_app/contact_us.html', context={'form':form})

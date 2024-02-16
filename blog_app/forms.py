@@ -21,5 +21,5 @@ class ContactUsForm(forms.Form):
         name = self.cleaned_data.get('name')
         if ' ' in name:
             raise ValidationError('no space in name',code='name_space_error')
-        return name
+        return name + ' test'
         
