@@ -11,6 +11,8 @@ class ContactUsForm(forms.Form):
     def clean(self):
         name = self.cleaned_data.get('name')
         message = self.cleaned_data.get('message')
+        if name == 'farzad':
+            self.add_error('name', 'fazad nari cant send message')
         if name == message:
             raise ValidationError('name and message are same', code='name_message_same')
         
