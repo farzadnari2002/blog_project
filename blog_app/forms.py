@@ -12,7 +12,7 @@ class ContactUsForm(forms.Form):
     ]
     name = forms.CharField(label='your name', max_length=10)
     message = forms.CharField(label='your message', max_length=10)
-    data = forms.DateField(label='your date', widget=forms.SelectDateWidget(years=years))
+    data = forms.DateField(label='your date', widget=forms.SelectDateWidget(years=years, attrs={'class':'form-control'}))
     favorite_colors = forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple, choices=FAVORITE_COLORS_CHOICES)
     
     
