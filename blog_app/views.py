@@ -43,8 +43,6 @@ def contact_us(request):
     if request.method == 'POST':
         form = MessageForm(data=request.POST)
         if form.is_valid():
-            object = form.save(commit=False)
-            object.title = object.title + 'okay'
             form.save()
     else:
          form = MessageForm()          
