@@ -1,5 +1,6 @@
 from django import forms
 from django.core.exceptions import ValidationError
+from .models import Message
 
 
 
@@ -33,9 +34,9 @@ class ContactUsForm(forms.Form):
     
     
     
-class MessageForm(forms.Form):
-    title = forms.CharField(max_length=150)
-    text = forms.CharField(widget=forms.Textarea)
-    email = forms.EmailField()
+class MessageForm(forms.ModelForm):
+    class Meta:
+        model = Message
+        fields = '__all__'
         
         
