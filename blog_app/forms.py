@@ -30,4 +30,11 @@ class ContactUsForm(forms.Form):
         if ' ' in name:
             raise ValidationError('no space in name',code='name_space_error')
         return name + ' test'
+    
+    
+    
+    class MessageForm(forms.Form):
+        title = forms.CharField(max_length=150)
+        text = forms.CharField(widget=forms.Textarea)
+        
         
