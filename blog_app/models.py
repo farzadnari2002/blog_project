@@ -70,6 +70,7 @@ class Comment(models.Model):
 class Message(models.Model):
     title = models.CharField(max_length=150)
     text = models.TextField()
+    email = models.EmailField()
     created_an = models.DateTimeField(auto_now_add=True)
     
     

@@ -36,5 +36,6 @@ class ContactUsForm(forms.Form):
 class MessageForm(forms.Form):
     title = forms.CharField(max_length=150)
     text = forms.CharField(widget=forms.Textarea)
+    email = forms.EmailField()
         
         
