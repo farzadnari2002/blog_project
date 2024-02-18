@@ -64,6 +64,15 @@ class Comment(models.Model):
     
     def __str__(self):
         return self.body[0:50]
-
-
- 
+    
+    
+    
+class Message(models.Model):
+    title = models.CharField(max_length=150)
+    text = models.TextField()
+    created_an = models.DateTimeField(auto_now_add=True)
+    
+    
+    def __str__(self):
+        return f'{self.title}-{self.text[:50]}'
+    
