@@ -43,10 +43,7 @@ def contact_us(request):
     if request.method == 'POST':
         form = MessageForm(data=request.POST)
         if form.is_valid():
-            title = form.cleaned_data['title']
-            text = form.cleaned_data['text']
-            email = form.cleaned_data['email']
-            Message.objects.create(title=title, text=text, email=email)
+            form.save()
     else:
          form = MessageForm()          
     return render(request, 'blog_app/contact_us.html', context={'form':form})
