@@ -7,4 +7,4 @@ register = template.Library()
 
 @register.filter
 def cutter(value, arg):
-    return value[:arg]
+    return value[:arg]+'...'
