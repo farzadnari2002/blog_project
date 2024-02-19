@@ -3,5 +3,5 @@ from django import forms
 
 
 class LoginForm(forms.Form):
-    username = forms.CharField(widget=forms.TextInput(attrs={'class':'wrap-input100 validate-input'}))
+    username = forms.CharField(max_length=50, widget=forms.TextInput(attrs={'class':'input100'}))
     password = forms.CharField(widget=forms.PasswordInput(attrs={'class':'input100'}))
