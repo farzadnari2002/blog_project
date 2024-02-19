@@ -64,5 +64,12 @@ def users_logout(request):
 
 
 def user_edit(request):
-    form = UserEditForm(instance=request.user)
+    user = request.user
+    if request.method == 'POST':
+        form = UserEditForm(instance=user, data=request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home_app:home')
+    else:
+        form = UserEditForm(instance=user)
     return render(request, 'accounts_app/edit.html', context={'form':form})
