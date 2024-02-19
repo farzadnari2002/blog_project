@@ -64,5 +64,5 @@ def users_logout(request):
 
 
 def user_edit(request):
-    form = UserEditForm()
+    form = UserEditForm(instance=request.user)
     return render(request, 'accounts_app/edit.html', context={'form':form})
