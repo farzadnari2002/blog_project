@@ -61,3 +61,8 @@ def users_login(request):
 def users_logout(request):
     logout(request)
     return redirect("home_app:home")
+
+
+def user_edit(request):
+    form = UserEditForm()
+    return render(request, 'accounts_app/edit.html', context={'form':form})
