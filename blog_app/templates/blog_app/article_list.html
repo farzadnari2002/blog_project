@@ -2,6 +2,7 @@
 {% load static %}
 {% load filters %}
 {% load simple_tags %}
+{% load inclusion_tags %}
 
 
 
@@ -34,7 +35,7 @@
           <div class="main-content">
             <div class="row">
               <div class="col-lg-8">
-                <span>Stand Blog HTML5 Template</span>
+                <span>{% say_hello "farzad" %}</span>
                 <h4>Creative HTML Template For Bloggers!</h4>
               </div>
               <div class="col-lg-4">
