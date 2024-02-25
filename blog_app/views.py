@@ -54,6 +54,17 @@ class TestBaseView(View):
     name = 'farzad'
     def get(self, request):
         return HttpResponse(self.name)
+    
+    
+class TestBaseView2(TestBaseView):
+    name = 'mamad'
+    
+    
+
+
+
+
+    
 
     
     
