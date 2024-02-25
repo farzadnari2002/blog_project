@@ -10,4 +10,5 @@ urlpatterns = [
     path('category/<int:pk>', category_detail, name='category_detail'),
     path('search', search, name='search'),
     path('contactus', contact_us, name='contact_us'),
+    path('test1', TestBaseView.as_view(), name='test1'),
 ]

@@ -1,8 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse
 from .models import Article, Category, Comment, Message
 from django.shortcuts import get_object_or_404, redirect
 from django.core.paginator import Paginator
 from .forms import MessageForm
+from django.views.generic.base import View
 
 
 
@@ -47,6 +48,13 @@ def contact_us(request):
     else:
          form = MessageForm()          
     return render(request, 'blog_app/contact_us.html', context={'form':form})
+
+
+class TestBaseView(View):
+    name = 'farzad'
+    def get(self, request):
+        return HttpResponse(self.name)
+
     
     
     
