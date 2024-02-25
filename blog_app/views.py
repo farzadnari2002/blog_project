@@ -6,8 +6,6 @@ from .forms import MessageForm
 from django.views.generic.base import View
 
 
-
-
 def article_detail(request, slug):
     article = get_object_or_404(Article, slug=slug)
     if request.method == 'POST':
@@ -58,6 +56,18 @@ class TestBaseView(View):
     
 class TestBaseView2(TestBaseView):
     name = 'mamad'
+    
+    
+class ListView(View):
+    queryset = None
+    template_name = None
+    
+    def get(self, request):
+        return render(request, self.template_name, context={'objects_list':self.queryset})
+
+    
+    
+
     
     
 
