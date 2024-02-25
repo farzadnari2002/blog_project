@@ -4,6 +4,7 @@ from django.shortcuts import get_object_or_404, redirect
 from django.core.paginator import Paginator
 from .forms import MessageForm
 from django.views.generic.base import View
+from django.views.generic.list import ListView
 
 
 def article_detail(request, slug):
@@ -58,12 +59,12 @@ class TestBaseView2(TestBaseView):
     name = 'mamad'
     
     
-class ListView(View):
-    queryset = None
-    template_name = None
+# class ListView(View):
+#     queryset = None
+#     template_name = None
     
-    def get(self, request):
-        return render(request, self.template_name, context={'object_list':self.queryset})
+#     def get(self, request):
+#         return render(request, self.template_name, context={'object_list':self.queryset})
     
     
 class ArticleList(ListView):
