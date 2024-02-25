@@ -63,9 +63,12 @@ class ListView(View):
     template_name = None
     
     def get(self, request):
-        return render(request, self.template_name, context={'objects_list':self.queryset})
-
+        return render(request, self.template_name, context={'object_list':self.queryset})
     
+    
+class ArticleList(ListView):
+    queryset = Article.objects.all()
+    template_name = 'blog_app/article_list.html'    
     
 
     
