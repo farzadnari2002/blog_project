@@ -5,7 +5,6 @@ from django.core.paginator import Paginator
 from .forms import MessageForm
 from django.views.generic.base import View
 from django.views.generic.list import ListView
-from django.views.generic.base import TemplateView
 
 
 def article_detail(request, slug):
@@ -68,18 +67,11 @@ class TestBaseView2(TestBaseView):
 #         return render(request, self.template_name, context={'object_list':self.queryset})
     
     
-# class ArticleList(ListView):
-#     queryset = Article.objects.all()
-#     template_name = 'blog_app/article_list.html'    
-
-
-class ArticleList(TemplateView):
+class ArticleList(ListView):
+    queryset = Article.objects.all()
     template_name = 'blog_app/article_list.html'    
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['object_list'] = Article.objects.all()
-        return context
-    
+
+
     
 
 
