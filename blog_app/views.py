@@ -3,8 +3,9 @@ from .models import Article, Category, Comment, Message
 from django.shortcuts import get_object_or_404, redirect
 from django.core.paginator import Paginator
 from .forms import MessageForm
-from django.views.generic.base import View, RedirectView
+from django.views.generic.base import View
 from django.views.generic.list import ListView
+from django.views.generic import DetailView
 
 
 def article_detail(request, slug):
@@ -71,6 +72,9 @@ class ArticleList(ListView):
     queryset = Article.objects.all()
     template_name = 'blog_app/article_list.html' 
     
+    
+class ArticleDetail(DetailView):
+    model = Article
     
 
 
