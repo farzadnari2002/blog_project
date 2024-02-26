@@ -12,4 +12,5 @@ urlpatterns = [
     path('contactus', contact_us, name='contact_us'),
     path('test1', TestBaseView.as_view(), name='test1'),
     path('test2', TestBaseView2.as_view(), name='test2'),
+    path('red', Redirect.as_view(), name='red'),
 ]
