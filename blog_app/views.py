@@ -72,11 +72,6 @@ class ArticleList(ListView):
     template_name = 'blog_app/article_list.html' 
     
     
-class Redirect(RedirectView):
-    url = '/'   
-
-
-    
 
 
 
