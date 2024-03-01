@@ -79,6 +79,7 @@ class ArticleDetail(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['test'] = '123'
+        return context
     
 
 
