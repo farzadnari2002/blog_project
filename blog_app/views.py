@@ -81,8 +81,14 @@ class ArticleDetail(DetailView):
     
 class ContactUs(FormView):
     template_name = 'blog_app/contact_us.html'
-    form = MessageForm
+    form_class = MessageForm
     success_url = '/'
+    
+    
+    def form_valid(self, form):
+        form_data = form.cleaned_data
+        Message.objects.create(**form_data)
+        return super().form_valid(form)
     
 
 
