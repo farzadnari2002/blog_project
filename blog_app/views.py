@@ -5,7 +5,7 @@ from django.core.paginator import Paginator
 from .forms import MessageForm
 from django.views.generic.base import View
 from django.views.generic.list import ListView
-from django.views.generic import DetailView
+from django.views.generic import DetailView,FormView
 
 
 def article_detail(request, slug):
@@ -77,6 +77,12 @@ class ArticleList(ListView):
     
 class ArticleDetail(DetailView):
     model = Article
+    
+    
+class ContactUs(FormView):
+    template_name = 'blog_app/contact_us.html'
+    form = MessageForm
+    success_url = '/'
     
 
 
