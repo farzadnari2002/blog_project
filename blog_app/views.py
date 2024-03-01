@@ -69,8 +69,10 @@ class TestBaseView2(TestBaseView):
     
     
 class ArticleList(ListView):
-    queryset = Article.objects.all()
-    template_name = 'blog_app/article_list.html' 
+    model = Article
+    context_object_name = 'articles'
+    paginate_by = 1
+ 
     
     
 class ArticleDetail(DetailView):
