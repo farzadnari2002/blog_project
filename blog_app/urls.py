@@ -9,7 +9,7 @@ urlpatterns = [
     path('list', ArticleList.as_view(), name='article_list'),
     path('category/<int:pk>', category_detail, name='category_detail'),
     path('search', search, name='search'),
-    path('contactus', ContactUs.as_view(), name='contact_us'),
+    path('contactus', Message.as_view(), name='contact_us'),
     path('test1', TestBaseView.as_view(), name='test1'),
     path('test2', TestBaseView2.as_view(), name='test2'),
 ]
