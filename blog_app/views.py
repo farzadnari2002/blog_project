@@ -93,7 +93,7 @@ class ContactUs(FormView):
     
 class Message(CreateView):
     model = Message
-    field = '__all__'
+    fields = '__all__'
     
 
 
