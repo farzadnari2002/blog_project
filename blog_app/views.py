@@ -94,6 +94,7 @@ class ContactUs(FormView):
 class Message(CreateView):
     model = Message
     fields = '__all__'
+    success_url = '/'
     
 
 
