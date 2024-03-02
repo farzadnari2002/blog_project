@@ -97,11 +97,15 @@ class MessageCreate(CreateView):
     success_url = '/'
     
     
+class MessageList(ListView):
+    model = Message
+
+    
 class MessageUpdate(UpdateView):
     model = Message
     fields = ('title', 'text')
     template_name_suffix = '_update_form'
-    success_url = '/'
+    success_url = '/articles/messages'
     
   
 

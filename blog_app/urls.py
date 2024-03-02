@@ -12,5 +12,6 @@ urlpatterns = [
     path('contactus', MessageCreate.as_view(), name='contact_us'),
     path('test1', TestBaseView.as_view(), name='test1'),
     path('test2', TestBaseView2.as_view(), name='test2'),
+    path('messages', MessageList.as_view(), name='message_list'),
     path('message/edit/<int:pk>', MessageUpdate.as_view(), name='message_edit'),
 ]
