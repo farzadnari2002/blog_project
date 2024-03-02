@@ -110,7 +110,7 @@ class MessageUpdate(UpdateView):
     
 class MessageDelete(DeleteView):
     model = Message
-    succes_url = '/articles/messages'
+    success_url = '/articles/messages'
     
   
 
