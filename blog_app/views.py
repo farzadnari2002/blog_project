@@ -5,7 +5,7 @@ from django.core.paginator import Paginator
 from .forms import MessageForm
 from django.views.generic.base import View
 from django.views.generic.list import ListView
-from django.views.generic import DetailView,FormView, CreateView, UpdateView
+from django.views.generic import DetailView,FormView, CreateView, UpdateView, DeleteView
 
 
 def article_detail(request, slug):
@@ -106,6 +106,11 @@ class MessageUpdate(UpdateView):
     fields = ('title', 'text')
     template_name_suffix = '_update_form'
     success_url = '/articles/messages'
+    
+    
+class MessageDelete(DeleteView):
+    model = Message
+    succes_url = '/articles/messages'
     
   
 

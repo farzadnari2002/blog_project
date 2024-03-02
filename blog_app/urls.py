@@ -14,4 +14,5 @@ urlpatterns = [
     path('test2', TestBaseView2.as_view(), name='test2'),
     path('messages', MessageList.as_view(), name='message_list'),
     path('message/edit/<int:pk>', MessageUpdate.as_view(), name='message_edit'),
+    path('message/delete/<int:pk>', MessageDelete.as_view(), name='message_delete'),
 ]
