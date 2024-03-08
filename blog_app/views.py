@@ -8,6 +8,7 @@ from django.views.generic.list import ListView
 from django.views.generic import DetailView,FormView, CreateView, UpdateView, DeleteView
 from django.views.generic.dates import YearArchiveView, ArchiveIndexView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from .mixins import CustomLoginRequiredMixin
 
 
 
@@ -71,7 +72,7 @@ class TestBaseView2(TestBaseView):
 #         return render(request, self.template_name, context={'object_list':self.queryset})
     
     
-class ArticleList(LoginRequiredMixin ,ListView):
+class ArticleList(CustomLoginRequiredMixin, ListView):
     model = Article
     context_object_name = 'articles'
     paginate_by = 1
@@ -119,6 +120,8 @@ class MessageDelete(DeleteView):
 class ArticleArchiveIndexView(ArchiveIndexView):
     model = Article
     date_field = 'created'
+    
+    
 
   
 
