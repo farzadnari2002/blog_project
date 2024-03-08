@@ -6,6 +6,7 @@ from .forms import MessageForm
 from django.views.generic.base import View
 from django.views.generic.list import ListView
 from django.views.generic import DetailView,FormView, CreateView, UpdateView, DeleteView
+from django.views.generic.dates import YearArchiveView
 
 
 def article_detail(request, slug):
@@ -112,6 +113,12 @@ class MessageDelete(DeleteView):
     model = Message
     success_url = '/articles/messages'
     
+    
+class ArticleYearArchiveView(YearArchiveView):
+    model = Article
+    date_field = 'created'
+    make_object_list = True
+    allow_future = True
   
 
 
