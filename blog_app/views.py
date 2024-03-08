@@ -7,6 +7,8 @@ from django.views.generic.base import View
 from django.views.generic.list import ListView
 from django.views.generic import DetailView,FormView, CreateView, UpdateView, DeleteView
 from django.views.generic.dates import YearArchiveView, ArchiveIndexView
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 
 
 def article_detail(request, slug):
@@ -69,7 +71,7 @@ class TestBaseView2(TestBaseView):
 #         return render(request, self.template_name, context={'object_list':self.queryset})
     
     
-class ArticleList(ListView):
+class ArticleList(LoginRequiredMixin ,ListView):
     model = Article
     context_object_name = 'articles'
     paginate_by = 1
