@@ -15,5 +15,5 @@ urlpatterns = [
     path('messages', MessageList.as_view(), name='message_list'),
     path('message/edit/<int:pk>', MessageUpdate.as_view(), name='message_edit'),
     path('message/delete/<int:pk>', MessageDelete.as_view(), name='message_delete'),
-    path('archive/<int:year>', ArticleYearArchiveView.as_view(), name='article_year_archive'),
+    path('archive/', ArticleArchiveIndexView.as_view(), name='article_archive'),
 ]
