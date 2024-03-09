@@ -21,6 +21,11 @@ class Category(models.Model):
         return self.title
     
     
+    class Meta:
+        verbose_name = 'دسته بندی'
+        verbose_name_plural = 'دسته بندی ها'
+    
+    
      
 class Article(models.Model):
     writer = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -36,8 +41,9 @@ class Article(models.Model):
     
     
     
-    # class Meta:
-    #     ordering = ('-created',)
+    class Meta:
+        verbose_name = 'مقاله'
+        verbose_name_plural = 'مقالات'
     
     
     def save(self, *args, **kwargs):
@@ -66,6 +72,11 @@ class Comment(models.Model):
         return self.body[0:50]
     
     
+    class Meta:
+        verbose_name = 'کامنت'
+        verbose_name_plural = 'کامنت ها'
+    
+    
     
 class Message(models.Model):
     title = models.CharField(max_length=150)
@@ -76,4 +87,10 @@ class Message(models.Model):
     
     def __str__(self):
         return f'{self.title}-{self.text[:50]}'
+    
+    
+    class Meta:
+        verbose_name = 'پیغام'
+        verbose_name_plural = 'پیغام ها'
+        
     
