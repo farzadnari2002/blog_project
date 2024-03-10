@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse
-from .models import Article, Category, Comment, Message
+from .models import Article, Category, Comment, Message, Like
 from django.shortcuts import get_object_or_404, redirect
 from django.core.paginator import Paginator
 from .forms import MessageForm
@@ -120,6 +120,16 @@ class MessageDelete(DeleteView):
 class ArticleArchiveIndexView(ArchiveIndexView):
     model = Article
     date_field = 'created'
+    
+    
+def like(request, slug, pk):
+    try:
+        like = Like.objects.get(user_id=request.user.id, article__slug=slug)
+        like.delete()
+    except:
+        Like.objects.create(user_id=request.user.id, article_id=pk )
+    return redirect('blog_app:article_detail', slug)
+        
     
     
 

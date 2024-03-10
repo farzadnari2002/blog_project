@@ -16,4 +16,5 @@ urlpatterns = [
     path('message/edit/<int:pk>', MessageUpdate.as_view(), name='message_edit'),
     path('message/delete/<int:pk>', MessageDelete.as_view(), name='message_delete'),
     path('archive/', ArticleArchiveIndexView.as_view(), name='article_archive'),
+    path('like/<slug:slug>/<int:pk>', like, name='like'),
 ]
