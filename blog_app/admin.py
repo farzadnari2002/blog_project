@@ -16,6 +16,10 @@ class FilterByTitle(admin.SimpleListFilter):
     def queryset(self, request, queryset):
         if self.value():
             return queryset.filter(title__icontains=self.value())
+        
+        
+class CommentInline(admin.TabularInline):
+    model = Comment
                 
 
 
@@ -25,6 +29,7 @@ class ArticleAdmin(admin.ModelAdmin):
     list_filter = ('status', 'category', FilterByTitle)
     search_fields = ('title',)
     list_editable = ('status',)
+    inlines = (CommentInline,)
 
     
     
