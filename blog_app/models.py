@@ -100,4 +100,18 @@ class Message(models.Model):
         verbose_name = 'پیغام'
         verbose_name_plural = 'پیغام ها'
         
+        
+class Like(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='likes', verbose_name='کاربر')
+    article = models.ForeignKey(Article, on_delete=models.CASCADE, related_name='likes', verbose_name='مفاله')
+    created_at = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return f'{self.user.username} - {self.article.title}'
+    
+    class Meta:
+        verbose_name = 'لایک'
+        verbose_name_plural = 'لایک ها'
+        ordering = ('-created_at',)
+        
     
