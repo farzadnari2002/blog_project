@@ -1,3 +1,4 @@
+from typing import Any
 from django.shortcuts import render, HttpResponse
 from .models import Article, Category, Comment, Message, Like
 from django.shortcuts import get_object_or_404, redirect
@@ -82,6 +83,14 @@ class ArticleList(CustomLoginRequiredMixin, ListView):
 class ArticleDetail(DetailView):
     model = Article
     
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if Like.objects.filter(user_id=self.request.user.id, article__slug=self.object.slug).exists():
+            context['is_liked'] = True
+        else:
+            context['is_liked'] = False
+        return context
+               
     
 class ContactUs(FormView):
     template_name = 'blog_app/contact_us.html'
