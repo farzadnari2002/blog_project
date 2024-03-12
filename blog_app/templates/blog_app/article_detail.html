@@ -88,9 +88,9 @@
                           <div class="col-6">
                             <ul class="post-tags">
                               {% if is_liked %}
-                              <li><a href="{% url "blog_app:like" article.slug article.id %}"><i style="font-size: 20px;" class="fa fa-heart"></i></a>{{ article.likes.all.count }}</li>
+                              <li><a onclick="like_status('{{ article.slug }}', '{{ article.id }}')"><i id='like' style="font-size: 20px;" class="fa fa-heart"></i></a><span id='count'>{{ article.likes.all.count }}</span></li>
                               {% else %}
-                              <li><a href="{% url "blog_app:like" article.slug article.id %}"><i style="font-size: 20px;" class="fa fa-heart-o"></i></a>{{ article.likes.all.count }}</li>
+                              <li><a onclick="like_status('{{ article.slug }}', '{{ article.id }}')"><i id='like' style="font-size: 20px;" class="fa fa-heart-o"></i></a><span id='count'>{{ article.likes.all.count }}</span></li>
                               {% endif %}
                             </ul>
                           </div>

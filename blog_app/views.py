@@ -10,6 +10,7 @@ from django.views.generic import DetailView,FormView, CreateView, UpdateView, De
 from django.views.generic.dates import YearArchiveView, ArchiveIndexView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .mixins import CustomLoginRequiredMixin
+from django.http import JsonResponse
 
 
 
@@ -135,12 +136,13 @@ def like(request, slug, pk):
     try:
         like = Like.objects.get(user_id=request.user.id, article__slug=slug)
         like.delete()
+        return JsonResponse({'response':'dislike'})
     except:
         Like.objects.create(user_id=request.user.id, article_id=pk )
-    return redirect('blog_app:article_detail', slug)
-        
-    
-    
+        return JsonResponse({'response':'like'})
+
+
+
 
   
 
