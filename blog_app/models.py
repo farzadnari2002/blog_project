@@ -116,9 +116,9 @@ class Like(models.Model):
         
         
 class SocialMedia(models.Model):
-    instagram = models.CharField(max_length=200, verbose_name='اینستاگرام')
-    telegram = models.CharField(max_length=200, verbose_name='تلگرام')
-    whatsapp = models.CharField(max_length=200, verbose_name='واتساپ')
+    instagram = models.URLField(max_length=200, verbose_name='اینستاگرام')
+    telegram = models.URLField(max_length=200, verbose_name='تلگرام')
+    whatsapp = models.URLField(max_length=200, verbose_name='واتساپ')
     
     
     class Meta:
