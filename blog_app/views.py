@@ -27,14 +27,6 @@ def article_detail(request, slug):
     return render(request, 'blog_app/article_detail.html', context={'article':article,'is_liked':is_liked, 'form':form})
 
 
-def article_list(request):
-    articles = Article.objects.all()
-    page_number = request.GET.get('page', 1)
-    paginator = Paginator(articles, 1)
-    objects_list = paginator.page(page_number)
-    return render(request, 'blog_app/article_list.html', context={'articles':objects_list})
-
-
 def category_detail(request, pk):
     category = get_object_or_404(Category, id=pk)
     articles = category.articles.all()
