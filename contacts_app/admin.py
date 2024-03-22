@@ -1,9 +1,9 @@
 from django.contrib import admin
-from .models import Message, SocialMedia
+from .models import Message, Contact
 
 
-@admin.register(SocialMedia)
-class SOcialMediaAdmin(admin.ModelAdmin):
+@admin.register(Contact)
+class ContactsAdmin(admin.ModelAdmin):
     list_display = ('instagram', 'telegram', 'whatsapp')
     
     

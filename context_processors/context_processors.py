@@ -1,6 +1,5 @@
 from blog_app.models import Article, Category
-from contacts_app.models import SocialMedia
-
+from contacts_app.models import Contact
 
 
 def recent_articles(request):
@@ -14,7 +13,7 @@ def categories(request):
     return {"categories":categories}
 
 
-def social_medias(request):
-    social_medias = SocialMedia.objects.all().first()
-    return {'social_medias':social_medias}
+def contacts(request):
+    contacts = Contact.objects.all().first()
+    return {'contacts':contacts}
     

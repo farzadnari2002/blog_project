@@ -17,14 +17,14 @@ class Message(models.Model):
         verbose_name_plural = 'پیغام ها'
         
         
-class SocialMedia(models.Model):
+class Contact(models.Model):
     instagram = models.URLField(max_length=200, verbose_name='اینستاگرام')
     telegram = models.URLField(max_length=200, verbose_name='تلگرام')
     whatsapp = models.URLField(max_length=200, verbose_name='واتساپ')
     
     
     class Meta:
-        verbose_name = 'شبکه اجتماعی'
-        verbose_name_plural = 'شبکه های اجتماعی'
+        verbose_name = 'پل ارتباطی'
+        verbose_name_plural = 'پل های ارتباطی'
         
     

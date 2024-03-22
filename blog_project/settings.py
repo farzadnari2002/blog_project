@@ -80,7 +80,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'context_processors.context_processors.recent_articles',
                 'context_processors.context_processors.categories',
-                'context_processors.context_processors.social_medias',
+                'context_processors.context_processors.contacts',
                 
             ],
         },

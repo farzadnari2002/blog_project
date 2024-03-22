@@ -7,7 +7,6 @@ from django.utils.text import slugify
 from django.utils.html import format_html
 
 
-
 class Category(models.Model):
     title = models.CharField(max_length=70, verbose_name='عنوان')
     created = models.DateTimeField(auto_now_add=True, verbose_name='تاریخ ایجاد دسته بندی')
@@ -64,7 +63,6 @@ class Article(models.Model):
     
     def __str__(self):
         return f"{self.title} - {self.body[:30]}..."
-    
     
     
 class Comment(models.Model):
