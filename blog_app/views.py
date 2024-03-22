@@ -17,6 +17,10 @@ from django.views.generic.edit import FormMixin
 
 def article_detail(request, slug):
     article = get_object_or_404(Article, slug=slug)
+    if Like.objects.filter(user_id=request.user.id, article__slug=slug).exists():
+        is_liked = True
+    else:
+        is_liked = False 
     if request.method == 'POST':
         form = CommentForm(data=request.POST)
         if form.is_valid():
@@ -24,9 +28,10 @@ def article_detail(request, slug):
             form.article_id = article.id
             form.user_id = request.user.id
             form.save()
+            form = CommentForm()
     else:
         form = CommentForm()
-    return render(request, 'blog_app/article_detail.html', context={'article':article, 'form':form})
+    return render(request, 'blog_app/article_detail.html', context={'article':article,'is_liked':is_liked, 'form':form})
 
 
 def article_list(request):
