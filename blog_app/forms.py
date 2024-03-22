@@ -1,6 +1,6 @@
 from django import forms
 from django.core.exceptions import ValidationError
-from .models import Message, Comment
+from .models import Comment
 
 
 
@@ -34,18 +34,18 @@ class ContactUsForm(forms.Form):
     
     
     
-class MessageForm(forms.ModelForm):
-    class Meta:
-        model = Message
-        fields = '__all__'
-        widgets = {
-            'title': forms.TextInput(attrs={
-                'class': 'form-control',
-            }),
-            'text': forms.Textarea(attrs={
-                'class': 'form-control',
-            }),
-        }
+# class MessageForm(forms.ModelForm):
+#     class Meta:
+#         model = Message
+#         fields = '__all__'
+#         widgets = {
+#             'title': forms.TextInput(attrs={
+#                 'class': 'form-control',
+#             }),
+#             'text': forms.Textarea(attrs={
+#                 'class': 'form-control',
+#             }),
+#         }
        
         
 class CommentForm(forms.ModelForm):

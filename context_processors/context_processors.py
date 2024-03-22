@@ -1,4 +1,5 @@
-from blog_app.models import Article, Category, SocialMedia
+from blog_app.models import Article, Category
+from contacts_app.models import SocialMedia
 
 
 

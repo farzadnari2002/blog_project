@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'home_app.apps.HomeAppConfig',
     'accounts_app.apps.AccountsAppConfig',
     'blog_app.apps.BlogAppConfig',
+    'contacts_app.apps.ContactsAppConfig',
     'django_cleanup.apps.CleanupConfig',
     'django_render_partial',
     'django_social_share',

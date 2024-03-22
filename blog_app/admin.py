@@ -32,15 +32,8 @@ class ArticleAdmin(admin.ModelAdmin):
     inlines = (CommentInline,)
     
     
-    @admin.register(SocialMedia)
-    class SOcialMediaAdmin(admin.ModelAdmin):
-        list_display = ('instagram', 'telegram', 'whatsapp')
-
-    
-    
 admin.site.register(Category)
 admin.site.register(Comment)
-admin.site.register(Message)
 admin.site.register(Like)
 
 

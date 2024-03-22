@@ -1,9 +1,9 @@
 from typing import Any
 from django.shortcuts import render, HttpResponse
-from .models import Article, Category, Comment, Message, Like
+from .models import Article, Category, Comment, Like
 from django.shortcuts import get_object_or_404, redirect
 from django.core.paginator import Paginator
-from .forms import MessageForm, CommentForm
+from .forms import CommentForm
 from django.views.generic.base import View
 from django.views.generic.list import ListView
 from django.views.generic import DetailView,FormView, CreateView, UpdateView, DeleteView
@@ -52,14 +52,14 @@ def search(request):
     return render(request, 'blog_app/article_list.html', context={'articles':objects_list})
 
 
-def contact_us(request):
-    if request.method == 'POST':
-        form = MessageForm(data=request.POST)
-        if form.is_valid():
-            form.save()
-    else:
-         form = MessageForm()          
-    return render(request, 'blog_app/contact_us.html', context={'form':form})
+# def contact_us(request):
+#     if request.method == 'POST':
+#         form = MessageForm(data=request.POST)
+#         if form.is_valid():
+#             form.save()
+#     else:
+#          form = MessageForm()          
+#     return render(request, 'blog_app/contact_us.html', context={'form':form})
 
 
 class TestBaseView(View):
@@ -106,38 +106,38 @@ class ArticleDetail(FormMixin, DetailView):
         return super().form_valid(form)
                
     
-class ContactUs(FormView):
-    template_name = 'blog_app/contact_us.html'
-    form_class = MessageForm
-    success_url = '/'
+# class ContactUs(FormView):
+#     template_name = 'blog_app/contact_us.html'
+#     form_class = MessageForm
+#     success_url = '/'
     
     
-    def form_valid(self, form):
-        form_data = form.cleaned_data
-        Message.objects.create(**form_data)
-        return super().form_valid(form)
+#     def form_valid(self, form):
+#         form_data = form.cleaned_data
+#         Message.objects.create(**form_data)
+#         return super().form_valid(form)
     
     
-class MessageCreate(CreateView):
-    model = Message
-    fields = ('__all__')
-    success_url = '/'
+# class MessageCreate(CreateView):
+#     model = Message
+#     fields = ('__all__')
+#     success_url = '/'
     
     
-class MessageList(ListView):
-    model = Message
+# class MessageList(ListView):
+#     model = Message
 
     
-class MessageUpdate(UpdateView):
-    model = Message
-    fields = ('title', 'text')
-    template_name_suffix = '_update_form'
-    success_url = '/articles/messages'
+# class MessageUpdate(UpdateView):
+#     model = Message
+#     fields = ('title', 'text')
+#     template_name_suffix = '_update_form'
+#     success_url = '/articles/messages'
     
     
-class MessageDelete(DeleteView):
-    model = Message
-    success_url = '/articles/messages'
+# class MessageDelete(DeleteView):
+#     model = Message
+#     success_url = '/articles/messages'
     
     
 class ArticleArchiveIndexView(ArchiveIndexView):
