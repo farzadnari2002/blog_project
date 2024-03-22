@@ -18,6 +18,9 @@ class Message(models.Model):
         
         
 class Contact(models.Model):
+    address = models.TextField(verbose_name='آدرس')
+    number = models.CharField(max_length=11, verbose_name='شماره همراه')
+    email = models.EmailField(verbose_name='ایمیل')
     instagram = models.URLField(max_length=200, verbose_name='اینستاگرام')
     telegram = models.URLField(max_length=200, verbose_name='تلگرام')
     whatsapp = models.URLField(max_length=200, verbose_name='واتساپ')
