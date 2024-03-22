@@ -114,4 +114,18 @@ class Like(models.Model):
         verbose_name_plural = 'لایک ها'
         ordering = ('-created_at',)
         
+        
+class SocialMedia(models.Model):
+    instagram = models.CharField(max_length=200, verbose_name='اینستاگرام')
+    telegram = models.CharField(max_length=200, verbose_name='تلگرام')
+    whatsapp = models.CharField(max_length=200, verbose_name='واتساپ')
+    
+    
+    class Meta:
+        verbose_name = 'شبکه اجتماعی'
+        verbose_name_plural = 'شبکه های اجتماعی'
+        
+    
+    
+        
     
