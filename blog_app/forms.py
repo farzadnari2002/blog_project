@@ -32,22 +32,7 @@ class ContactUsForm(forms.Form):
             raise ValidationError('no space in name',code='name_space_error')
         return name + ' test'
     
-    
-    
-# class MessageForm(forms.ModelForm):
-#     class Meta:
-#         model = Message
-#         fields = '__all__'
-#         widgets = {
-#             'title': forms.TextInput(attrs={
-#                 'class': 'form-control',
-#             }),
-#             'text': forms.Textarea(attrs={
-#                 'class': 'form-control',
-#             }),
-#         }
-       
-        
+            
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
